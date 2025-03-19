@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>daily mood tracker</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+      @theme {
+        --color-text: #0e131b;
+        --color-background: #eaeef5;
+        --color-forground: #ffffff;
+        --color-primary: #263d69;
+        --color-secondary: #88a9dd;
+        --color-accent: #2457a8;
+      }
+    </style>
+  </head>
+  <body class="bg-background h-screen px-4 py-6">
+    <!-- <h1 class="text-4xl text-center text-primary">Daily Mood Tracker</h1> -->
+
+    <!-- add mood -->
+    <div
+      class="flex flex-col justify-center items-center bg-forground rounded-lg p-4 max-w-[90%] mx-auto mt-12"
+      id="moods"
+    >
+      <h2 class="text-2xl text-primary">How are you feeling today?</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mt-4">
+        <div
+          class="shadow-[0_3px_10px_rgb(0,0,0,0.2)] border-primary flex flex-col items-center justify-center gap-4 rounded-[14px] p-4 m-2 cursor-pointer mood"
+        >
+          <img src="/images/happy.png" alt="happy" class="w-16 h-16" />
+          <p class="text-primary text-2xl font-bold uppercase">happy</p>
+        </div>
+        <div
+          class="shadow-[0_3px_10px_rgb(0,0,0,0.2)] border-primary flex flex-col items-center justify-center gap-4 rounded-[14px] p-4 m-2 cursor-pointer mood"
+        >
+          <img src="/images/sad.png" alt="happy" class="w-16 h-16" />
+          <p class="text-primary text-2xl font-bold uppercase">sad</p>
+        </div>
+        <div
+          class="shadow-[0_3px_10px_rgb(0,0,0,0.2)] border-primary flex flex-col items-center justify-center gap-4 rounded-[14px] p-4 m-2 cursor-pointer mood"
+        >
+          <img src="/images/surprise.png" alt="happy" class="w-16 h-16" />
+          <p class="text-primary text-2xl font-bold uppercase">surprise</p>
+        </div>
+        <div
+          class="shadow-[0_3px_10px_rgb(0,0,0,0.2)] border-primary flex flex-col items-center justify-center gap-4 rounded-[14px] p-4 m-2 cursor-pointer mood"
+        >
+          <img src="/images/love.png" alt="happy" class="w-16 h-16" />
+          <p class="text-primary text-2xl font-bold uppercase">love</p>
+        </div>
+        <div
+          class="shadow-[0_3px_10px_rgb(0,0,0,0.2)] border-primary flex flex-col items-center justify-center gap-4 rounded-[14px] p-4 m-2 cursor-pointer mood"
+        >
+          <img src="/images/fear.png" alt="happy" class="w-16 h-16" />
+          <p class="text-primary text-2xl font-bold uppercase">fear</p>
+        </div>
+        <div
+          class="shadow-[0_3px_10px_rgb(0,0,0,0.2)] border-primary flex flex-col items-center justify-center gap-4 rounded-[14px] p-4 m-2 cursor-pointer mood-button mt-4"
+        >
+          <img src="/images/angry.png" alt="happy" class="w-16 h-16" />
+          <p class="text-primary text-2xl font-bold uppercase">angry</p>
+        </div>
+      </div>
+
+      <button
+        id="submitMood"
+        class="bg-primary hover:bg-secondary text-forground font-medium py-2 px-4 rounded-lg transition duration-200 mt-4"
+      >
+        Submit your mood for today
+      </button>
+    </div>
+
+    <!-- Calendar Section -->
+    <div class="bg-white rounded-lg shadow-lg p-6 mt-12 max-w-[90%] mx-auto">
+      <div class="flex justify-between items-center mb-6">
+        <button
+          id="prevMonthBtn"
+          class="bg-indigo-500 hover:bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg transition duration-200 icon"
+        >
+          &larr; Previous
+        </button>
+        <h2 id="currentMonth" class="text-2xl font-bold text-gray-800"></h2>
+        <button
+          id="nextMonthBtn"
+          class="bg-indigo-500 hover:bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg transition duration-200 icon"
+        >
+          Next &rarr;
+        </button>
+      </div>
+
+      <div class="grid grid-cols-7 mb-4">
+        <div class="text-center font-semibold text-gray-600 p-2">Sun</div>
+        <div class="text-center font-semibold text-gray-600 p-2">Mon</div>
+        <div class="text-center font-semibold text-gray-600 p-2">Tue</div>
+        <div class="text-center font-semibold text-gray-600 p-2">Wed</div>
+        <div class="text-center font-semibold text-gray-600 p-2">Thu</div>
+        <div class="text-center font-semibold text-gray-600 p-2">Fri</div>
+        <div class="text-center font-semibold text-gray-600 p-2">Sat</div>
+      </div>
+
+      <div id="calendarGrid" class="grid grid-cols-7 gap-px bg-gray-200">
+        <!-- Calendar cells will be inserted here -->
+      </div>
+    </div>
+    <!-- 
+    <template id="dayCellTemplate">
+      <div
+        class="bg-white p-2 min-h-[80px] flex flex-col hover:bg-gray-50 transition-colors cursor-pointer"
+      >
+        <div class="text-right mb-2"></div>
+        <div class="flex-1 flex items-center justify-center text-xl"></div>
+      </div>
+    </template>
+
+    <template id="weekRowTemplate">
+      <div class="contents"></div>
+    </template> -->
+  </body>
+
+  <script src="script.js"></script>
+</html>
