@@ -31,13 +31,14 @@ const moods = Array.from(mood).map((item) => {
     const moodMap = {
       happy: "😊",
       sad: "😢",
-      angry: "😡",
       love: "😍",
       surprise: "😲",
       fear: "😨",
+      angry: "😡",
     };
 
     if (moodMap[text]) {
+      item.querySelector("img").className = "invert-30 w-16 h-16";
       selectedMood = JSON.stringify({
         emoji: moodMap[text],
         date: currDate,
